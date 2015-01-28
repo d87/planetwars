@@ -2,6 +2,7 @@
 
 import subprocess
 import time
+import random
 import os
 import math
 
@@ -144,6 +145,7 @@ class Game(object):
         for id, planet in self.planets.items():
             if planet.owner == 0:
                 planet.owner = player
+                planet.num_ships = 100 + random.randint(-20,20)
                 break
 
 
@@ -369,6 +371,7 @@ class Game(object):
 
 
 def main():
+    random.seed(time.time())
     try:
         bot1cmd = ["python", "bot.py"]
         bot2cmd = ["python", "bot.py"]
@@ -376,9 +379,15 @@ def main():
             Player(bot1cmd, team=1, name="Oingo"),
             Player(bot1cmd, team=1, name="Boingo"),
             Player(bot1cmd, team=1, name="Yoyoma"),
+            # Player(bot1cmd, team=1, name="Enigma"),
+            # Player(bot1cmd, team=1, name="Harvest"),
+            # Player(bot1cmd, team=1, name="Straits"),
             Player(bot2cmd, team=2, name="Johnny Joestar"),
             Player(bot2cmd, team=2, name="Gyro Zeppeli"),
             Player(bot2cmd, team=2, name="Lucy Steel"),
+            # Player(bot2cmd, team=2, name="Jolyne Kujo"),
+            # Player(bot2cmd, team=2, name="Sugar Mountain"),
+            # Player(bot1cmd, team=2, name="Killer Queen"),
         ])
         g.run()
     except KeyboardInterrupt:

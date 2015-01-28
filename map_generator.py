@@ -9,7 +9,7 @@ import random
 
 # minimum and maximum total number of planets in map
 minPlanets = 15
-maxPlanets = 30
+maxPlanets = 100
 # maximum number of planets specifically generated to be equidistant from both
 # players, by chance planet generated in the standard symmetric way could still
 # end up equidistant as well
